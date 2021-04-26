@@ -30,8 +30,10 @@
             <tr th:each="city : ${cities}">
                 <td><a th:href="@{/city/show-city/__${city.getName()}__}" th:text="${city.getName()}"></a></td>
                 <td th:text="${city.getCountry().getCountryName()}"></td>
-                <td style="text-align: center"><a class="btn btn-danger" th:href="@{city/delete/__${city.id}__}" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
-                <td style="text-align: center"><a class="btn btn-success" th:href="@{/city/update/__${city.id}__}">Update</a></td>
+                <td style="text-align: center"><a class="btn btn-danger" th:href="@{city/delete/__${city.id}__}"
+                                                  onclick="return confirm('Are you sure to delete?')">Delete</a></td>
+                <td style="text-align: center"><a class="btn btn-success" th:href="@{/city/update/__${city.id}__}">Update</a>
+                </td>
             </tr>
             </tbody>
         </table>

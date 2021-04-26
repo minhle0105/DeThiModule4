@@ -42,13 +42,13 @@ public class City implements Validator {
         double area = city.getArea();
         long population = city.getPopulation();
         double GDP = city.getGDP();
-        if (area<1){
+        if (area < 1) {
             errors.rejectValue("area", "area.unique");
         }
-        if (population<1){
+        if (population < 1) {
             errors.rejectValue("population", "population.unique");
         }
-        if (GDP<1){
+        if (GDP < 1) {
             errors.rejectValue("GDP", "area.unique");
         }
     }

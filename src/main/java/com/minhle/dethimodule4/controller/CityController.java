@@ -42,19 +42,19 @@ public class CityController {
 
     @PostMapping("/add-new")
     public ModelAndView addNewCity(@Valid @ModelAttribute City city, BindingResult bindingResult) {
-        city.validate(city,bindingResult);
+        city.validate(city, bindingResult);
         ModelAndView modelAndView;
         if (bindingResult.hasFieldErrors()) {
             modelAndView = new ModelAndView("/city/add");
             Iterable<Country> countries = countryService.findAll();
-            modelAndView.addObject("countries",countries);
+            modelAndView.addObject("countries", countries);
             return modelAndView;
         }
         cityService.save(city);
         Iterable<Country> countries = countryService.findAll();
         modelAndView = new ModelAndView("/city/add");
         modelAndView.addObject("city", new City());
-        modelAndView.addObject("countries",countries);
+        modelAndView.addObject("countries", countries);
         return modelAndView;
     }
 
@@ -81,19 +81,19 @@ public class CityController {
 
     @PostMapping("/update")
     public ModelAndView updateCity(@Valid @ModelAttribute("city") City city, BindingResult bindingResult) {
-        city.validate(city,bindingResult);
+        city.validate(city, bindingResult);
         ModelAndView modelAndView;
         if (bindingResult.hasFieldErrors()) {
             modelAndView = new ModelAndView("/city/update");
             Iterable<Country> countries = countryService.findAll();
-            modelAndView.addObject("countries",countries);
+            modelAndView.addObject("countries", countries);
             return modelAndView;
         }
         cityService.save(city);
         Iterable<Country> countries = countryService.findAll();
         modelAndView = new ModelAndView("/city/update");
         modelAndView.addObject("city", new City());
-        modelAndView.addObject("countries",countries);
+        modelAndView.addObject("countries", countries);
         return modelAndView;
     }
 

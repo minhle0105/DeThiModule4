@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class CountryService implements ICountryService{
+public class CountryService implements ICountryService {
 
     @Autowired
     private ICountryRepository countryRepository;
