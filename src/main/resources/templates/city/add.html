@@ -12,29 +12,37 @@
         <h1>Thêm thành phố</h1>
     </div>
     <div class="row">
+        <a th:href="@{/city}" class="btn btn-link">Quay lại danh sách thành phố</a>
+    </div>
+    <div class="row">
         <form th:object="${city}" th:action="@{/city/add-new}" method="post">
             <div class="form-group">
                 <label for="cityName">Tên</label>
                 <input type="text" class="form-control" id="cityName" th:field="*{name}">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
             <div class="form-group">
                 <h5 for="cityName">Quốc gia</h5>
                 <select th:field="*{country}">
                     <option th:each="country : ${countries}" th:value="${country.getId()}"
-                            th:text="${country.getCountryName()}"></option>
+                            th:selected="*{country}!=null ? (${country.id} == *{country.id}) : false"
+                            th:text="${country.countryName}"></option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="cityArea">Diện tích</label>
                 <input type="text" class="form-control" id="cityArea" th:field="*{area}">
+                <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></span>
             </div>
             <div class="form-group">
                 <label for="cityPopulation">Dân số</label>
                 <input type="text" class="form-control" id="cityPopulation" th:field="*{population}">
+                <span th:if="${#fields.hasErrors('population')}" th:errors="*{population}"></span>
             </div>
             <div class="form-group">
                 <label for="cityGDP">GDP</label>
                 <input type="text" class="form-control" id="cityGDP" th:field="*{GDP}">
+                <span th:if="${#fields.hasErrors('GDP')}" th:errors="*{GDP}"></span>
             </div>
             <div class="form-group">
                 <label for="cityDescription">Giới thiệu</label>

@@ -29,7 +29,7 @@ public class CountryService implements ICountryService{
     }
 
     @Override
-    public void remove(Long id) {
+    public void deleteById(Long id) {
         countryRepository.deleteById(id);
     }
 }

@@ -4,7 +4,6 @@ import com.minhle.dethimodule4.model.City;
 import com.minhle.dethimodule4.repository.ICityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -30,7 +29,7 @@ public class CityService implements ICityService {
     }
 
     @Override
-    public void remove(Long id) {
+    public void deleteById(Long id) {
         cityRepository.deleteById(id);
     }
 
