@@ -20,38 +20,40 @@
         </div>
     </div>
     <div class="row">
-        <form th:object="${city}">
-            <div class="form-group">
-                <label for="cityName">Tên</label>
-                <input type="text" readonly class="form-control" id="cityName" th:value="*{name}">
-            </div>
-            <div class="form-group">
-                <label for="country">Quốc gia</label>
-                <input type="text" readonly class="form-control" id="country" th:value="*{country.getCountryName()}">
-            </div>
-            <div class="form-group">
-                <label for="cityArea">Diện tích</label>
-                <input type="text" readonly class="form-control" id="cityArea" th:value="*{area}">
-            </div>
-            <div class="form-group">
-                <label for="cityPopulation">Dân số</label>
-                <input type="text" readonly class="form-control" id="cityPopulation" th:value="*{population}">
-            </div>
-            <div class="form-group">
-                <label for="cityGDP">GDP</label>
-                <input type="text" readonly class="form-control" id="cityGDP" th:value="*{GDP}">
-            </div>
-            <div class="form-group">
-                <label for="cityDescription">Giới thiệu</label>
-                <textarea class="form-control" readonly id="cityDescription" th:text="*{description}"></textarea>
-            </div>
-        </form>
+        <table th:object="${city}" class="table table-bordered">
+            <tbody>
+            <tr>
+                <td>Tên</td>
+                <td th:text="*{name}"></td>
+            </tr>
+            <tr>
+                <td>Quốc Gia</td>
+                <td th:text="*{country.getCountryName()}"></td>
+            </tr>
+            <tr>
+                <td>Diện tích</td>
+                <td th:text="*{area}"></td>
+            </tr>
+            <tr>
+                <td>Dân số</td>
+                <td th:text="*{population}"></td>
+            </tr>
+            <tr>
+                <td>GDP</td>
+                <td th:text="*{GDP}"></td>
+            </tr>
+            <tr>
+                <td>Giới thiệu</td>
+                <td th:text="*{description}"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-3">
             <a th:href="@{/city/update/__${city.getId()}__}" class="btn btn-success">Chỉnh sửa</a>
-            <a th:href="@{/city/delete/__${city.getId()}__}" class="btn btn-danger">Xoá</a>
+            <a th:href="@{/city/delete/__${city.getId()}__}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Xoá</a>
         </div>
         <div class="col-md-3"></div>
     </div>
