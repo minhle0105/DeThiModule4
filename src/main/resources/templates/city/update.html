@@ -21,7 +21,6 @@
     <div class="row">
         <form th:object="${city}" method="post" th:action="@{/city/update}">
             <div class="form-group">
-                <label for="cityId">Id</label>
                 <input type="hidden" class="form-control" id="cityId" th:field="*{id}" required>
             </div>
             <div class="form-group">

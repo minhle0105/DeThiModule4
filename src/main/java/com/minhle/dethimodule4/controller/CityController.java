@@ -92,7 +92,7 @@ public class CityController {
         cityService.save(city);
         Iterable<Country> countries = countryService.findAll();
         modelAndView = new ModelAndView("/city/update");
-        modelAndView.addObject("city", new City());
+        modelAndView.addObject("city", city);
         modelAndView.addObject("countries", countries);
         return modelAndView;
     }
